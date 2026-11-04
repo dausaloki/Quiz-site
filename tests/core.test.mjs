@@ -1,0 +1,8 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import { remainingMs, clockText, paletteState, nextAvailableIndex, validStudent, rankRows } from '../assets/js/exam-core.js';
+test('server deadline countdown never becomes negative', () => { assert.equal(remainingMs('2026-01-01T00:00:10Z', Date.parse('2026-01-01T00:00:00Z')), 10000); assert.equal(remainingMs('2026-01-01T00:00:00Z', 9999999999999), 0); assert.equal(remainingMs(null), Infinity); });
+test('clock formatting', () => { assert.equal(clockText(61000), '01:01'); assert.equal(clockText(3601000), '01:00:01'); });
+test('all palette states including answered-and-review', () => { assert.equal(paletteState(0,[1],[0],[0]), 'answered-review'); assert.equal(paletteState(0,[1],[],[0]), 'answered'); assert.equal(paletteState(0,[null],[0],[0]), 'review'); assert.equal(paletteState(0,[null],[],[0]), 'visited'); assert.equal(paletteState(0,[null],[],[]), 'unvisited'); });
+test('auto-next skips locked questions', () => { const qs=[{id:'a'},{id:'b'},{id:'c'}]; assert.equal(nextAvailableIndex({b:{locked:true}},qs,0),2); assert.equal(nextAvailableIndex({a:{locked:true},b:{locked:true},c:{locked:true}},qs,0),null); });
+test('student validation and optional mobile', () => { assert.equal(validStudent('लोकेश'), ''); assert.ok(validStudent('')); assert.ok(validStudent('Name','abc')); assert.equal(validStudent('Name','+91 9876543210'), ''); });
+test('leaderboard ties use marks, accuracy, time; exact ties share rank', () => { const rows=rankRows([{marks:5,accuracy:80,time_seconds:30},{marks:5,accuracy:90,time_seconds:40},{marks:5,accuracy:90,time_seconds:40},{marks:6,accuracy:100,time_seconds:50}]); assert.deepEqual(rows.map(r=>r.rank),[1,2,2,4]); });

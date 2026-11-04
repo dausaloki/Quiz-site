@@ -1,0 +1,5 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import { score } from '../supabase/functions/_shared/scoring.js';
+const qs=[{id:'a',correct_index:0},{id:'b',correct_index:1},{id:'c',correct_index:2},{id:'d',correct_index:3}];
+test('one-third negative marking is per question, not a fixed one mark', () => { const r=score(qs,{a:0,b:0,c:2,d:null},{negative_ratio:1/3,marks_per_question:1}); assert.equal(r.correct_count,2); assert.equal(r.wrong_count,1); assert.equal(r.unattempted_count,1); assert.equal(r.marks,1.6667); assert.equal(r.accuracy,66.67); });
+test('per-question marks and maximum marks', () => { const r=score(qs.map((q,i)=>({...q,marks:i+1})),{a:0,b:1,c:0,d:null},{negative_ratio:.25,max_marks:2}); assert.equal(r.total_marks,10); assert.equal(r.marks,2); const cap=score(qs,{a:0,b:1,c:2,d:3},{max_marks:3}); assert.equal(cap.marks,3); });
+test('all unattempted and all incorrect', () => { assert.equal(score(qs,{},{negative_ratio:1/3}).marks,0); assert.equal(score(qs,{a:1,b:0,c:0,d:0},{negative_ratio:.25}).marks,-1); });
