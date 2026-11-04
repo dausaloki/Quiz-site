@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Chromium: catalog hierarchy, search, filters and deep links",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: owner CRUD, full test builder and draft-only TXT import",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: invalid TXT retained, corrected in preview, never auto-saved",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: exam navigation, review, resume, server submit, solutions and PDF",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: overall timer auto-submits without confirmation",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: leaderboard and private history pages",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: legacy October exam, 50 questions, result and PDF remain intact",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: unauthorized owner account is blocked",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium: per-question deadline locks the palette and skips expired questions",
+    "status": "PASS"
+  },
+  {
+    "name": "Chromium/Android width: core pages fit a 360px viewport",
+    "status": "PASS"
+  },
+  {
+    "name": "WebKit/iPhone: homepage, admin, exam and legacy layouts have no horizontal overflow",
+    "status": "PASS"
+  }
+]

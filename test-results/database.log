@@ -1,0 +1,134 @@
+
+> kalam-se-kranti@3.0.0-local-rc test:db
+> node --test tests/database.test.mjs
+
+TAP version 13
+# Subtest: all migrations apply and pre-existing legacy data survives
+ok 1 - all migrations apply and pre-existing legacy data survives
+  ---
+  duration_ms: 1909.529912
+  ...
+# Subtest: anonymous catalog is published-only and cannot read private questions, owners or results
+ok 2 - anonymous catalog is published-only and cannot read private questions, owners or results
+  ---
+  duration_ms: 69.303198
+  ...
+# Subtest: non-owner authenticated account cannot use owner tools or write content
+ok 3 - non-owner authenticated account cannot use owner tools or write content
+  ---
+  duration_ms: 20.167093
+  ...
+# Subtest: owner allowlist is self-readable but not client-writable
+ok 4 - owner allowlist is self-readable but not client-writable
+  ---
+  duration_ms: 3.939872
+  ...
+# Subtest: exam payload hides keys; server scores negative marking; duplicate submit is idempotent
+ok 5 - exam payload hides keys; server scores negative marking; duplicate submit is idempotent
+  ---
+  duration_ms: 37.934833
+  ...
+# Subtest: wrong capability secret and cross-test question IDs are rejected
+ok 6 - wrong capability secret and cross-test question IDs are rejected
+  ---
+  duration_ms: 47.194914
+  ...
+# Subtest: start idempotency protects a reused nonce
+ok 7 - start idempotency protects a reused nonce
+  ---
+  duration_ms: 20.932505
+  ...
+# Subtest: draft tests and unpublished ancestors cannot be started
+ok 8 - draft tests and unpublished ancestors cannot be started
+  ---
+  duration_ms: 40.601921
+  ...
+# Subtest: schedule is enforced server-side and visible as upcoming
+ok 9 - schedule is enforced server-side and visible as upcoming
+  ---
+  duration_ms: 28.101755
+  ...
+# Subtest: per-question deadline is persisted, does not reset on revisit, and locks answers
+ok 10 - per-question deadline is persisted, does not reset on revisit, and locks answers
+  ---
+  duration_ms: 24.159973
+  ...
+# Subtest: overall expiry still submits saved answers and rejects later changes
+ok 11 - overall expiry still submits saved answers and rejects later changes
+  ---
+  duration_ms: 24.521503
+  ...
+# Subtest: practice mode is the explicit exception for active-test feedback
+ok 12 - practice mode is the explicit exception for active-test feedback
+  ---
+  duration_ms: 28.87346
+  ...
+# Subtest: active attempts use immutable question/marking snapshots
+ok 13 - active attempts use immutable question/marking snapshots
+  ---
+  duration_ms: 23.985591
+  ...
+# Subtest: solution, explanation and PDF switches are enforced on result retrieval
+ok 14 - solution, explanation and PDF switches are enforced on result retrieval
+  ---
+  duration_ms: 31.962589
+  ...
+# Subtest: leaderboard is test-scoped, anonymizes without consent, and can be unpublished
+ok 15 - leaderboard is test-scoped, anonymizes without consent, and can be unpublished
+  ---
+  duration_ms: 43.09641
+  ...
+# Subtest: verified history is account-private; guest capability does not enumerate results
+ok 16 - verified history is account-private; guest capability does not enumerate results
+  ---
+  duration_ms: 32.273112
+  ...
+# Subtest: TXT import RPC saves only to drafts and invalid batches roll back atomically
+ok 17 - TXT import RPC saves only to drafts and invalid batches roll back atomically
+  ---
+  duration_ms: 32.600285
+  ...
+# Subtest: duplicate, reorder, bulk edit, analytics and backup/restore work
+ok 18 - duplicate, reorder, bulk edit, analytics and backup/restore work
+  ---
+  duration_ms: 384.62002
+  ...
+# Subtest: premium is disabled by default; enabling requires a real active entitlement
+ok 19 - premium is disabled by default; enabling requires a real active entitlement
+  ---
+  duration_ms: 28.400141
+  ...
+# Subtest: registration/maintenance switches and private storage policies
+ok 20 - registration/maintenance switches and private storage policies
+  ---
+  duration_ms: 22.376827
+  ...
+# Subtest: distributed rate-limit helper is service-only and enforces its window
+ok 21 - distributed rate-limit helper is service-only and enforces its window
+  ---
+  duration_ms: 5.891138
+  ...
+# Subtest: SQL scoring matches independent reference across marking patterns
+ok 22 - SQL scoring matches independent reference across marking patterns
+  ---
+  duration_ms: 109.179579
+  ...
+# Subtest: owner RLS is read-only for attempts, answers, results and audit logs
+ok 23 - owner RLS is read-only for attempts, answers, results and audit logs
+  ---
+  duration_ms: 20.061365
+  ...
+# Subtest: bulk edit validates marks and tag payloads before writing
+ok 24 - bulk edit validates marks and tag payloads before writing
+  ---
+  duration_ms: 14.771565
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3139.663978

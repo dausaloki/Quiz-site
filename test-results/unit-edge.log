@@ -1,0 +1,139 @@
+
+> kalam-se-kranti@3.0.0-local-rc test
+> node --test tests/parser.test.mjs tests/core.test.mjs tests/scoring.test.mjs tests/edge.test.mjs
+
+TAP version 13
+# Subtest: server deadline countdown never becomes negative
+ok 1 - server deadline countdown never becomes negative
+  ---
+  duration_ms: 1.043905
+  ...
+# Subtest: clock formatting
+ok 2 - clock formatting
+  ---
+  duration_ms: 0.1548
+  ...
+# Subtest: all palette states including answered-and-review
+ok 3 - all palette states including answered-and-review
+  ---
+  duration_ms: 0.147038
+  ...
+# Subtest: auto-next skips locked questions
+ok 4 - auto-next skips locked questions
+  ---
+  duration_ms: 0.182966
+  ...
+# Subtest: student validation and optional mobile
+ok 5 - student validation and optional mobile
+  ---
+  duration_ms: 0.295928
+  ...
+# Subtest: leaderboard ties use marks, accuracy, time; exact ties share rank
+ok 6 - leaderboard ties use marks, accuracy, time; exact ties share rank
+  ---
+  duration_ms: 1.69242
+  ...
+# Subtest: CORS allows the configured static origin and rejects unrelated origins
+ok 7 - CORS allows the configured static origin and rejects unrelated origins
+  ---
+  duration_ms: 29.116645
+  ...
+# Subtest: start hashes capability/mobile secrets and forwards caller JWT, never service key to browser
+ok 8 - start hashes capability/mobile secrets and forwards caller JWT, never service key to browser
+  ---
+  duration_ms: 3.972219
+  ...
+# Subtest: invalid actions, secrets and oversized requests fail before RPC
+ok 9 - invalid actions, secrets and oversized requests fail before RPC
+  ---
+  duration_ms: 3.342592
+  ...
+# Subtest: private result history requires a verified user when no capability is supplied
+ok 10 - private result history requires a verified user when no capability is supplied
+  ---
+  duration_ms: 3.530119
+  ...
+# Subtest: rate limit and authorization errors map to 429/403
+ok 11 - rate limit and authorization errors map to 429/403
+  ---
+  duration_ms: 3.157814
+  ...
+# Subtest: media signing only transforms returned paths and supports public/HTTPS images
+ok 12 - media signing only transforms returned paths and supports public/HTTPS images
+  ---
+  duration_ms: 0.419
+  ...
+# Subtest: four requested English/Hindi formats parse with answers and multiline explanations
+ok 13 - four requested English/Hindi formats parse with answers and multiline explanations
+  ---
+  duration_ms: 7.200652
+  ...
+# Subtest: numeric options, five options, missing explanation and images
+ok 14 - numeric options, five options, missing explanation and images
+  ---
+  duration_ms: 2.583701
+  ...
+# Subtest: BOM, CRLF, extra spacing and multilingual text
+ok 15 - BOM, CRLF, extra spacing and multilingual text
+  ---
+  duration_ms: 0.498185
+  ...
+# Subtest: invalid questions are retained with precise validation, never silently filtered
+ok 16 - invalid questions are retained with precise validation, never silently filtered
+  ---
+  duration_ms: 0.683553
+  ...
+# Subtest: unknown format retains original and supports explicit field mapping
+ok 17 - unknown format retains original and supports explicit field mapping
+  ---
+  duration_ms: 0.740006
+  ...
+# Subtest: JSON legacy and bilingual formats normalize correctly
+ok 18 - JSON legacy and bilingual formats normalize correctly
+  ---
+  duration_ms: 0.627768
+  ...
+# Subtest: image scheme validation and variable option counts
+ok 19 - image scheme validation and variable option counts
+  ---
+  duration_ms: 0.336192
+  ...
+# Subtest: inline options and next question after missing answer keep boundaries
+ok 20 - inline options and next question after missing answer keep boundaries
+  ---
+  duration_ms: 1.657211
+  ...
+# Subtest: oversized imports fail explicitly
+ok 21 - oversized imports fail explicitly
+  ---
+  duration_ms: 3.455143
+  ...
+# Subtest: Hindi prompt beginning with उत्तर निम्न is not mistaken for an answer key
+ok 22 - Hindi prompt beginning with उत्तर निम्न is not mistaken for an answer key
+  ---
+  duration_ms: 0.374433
+  ...
+# Subtest: one-third negative marking is per question, not a fixed one mark
+ok 23 - one-third negative marking is per question, not a fixed one mark
+  ---
+  duration_ms: 1.147545
+  ...
+# Subtest: per-question marks and maximum marks
+ok 24 - per-question marks and maximum marks
+  ---
+  duration_ms: 0.203155
+  ...
+# Subtest: all unattempted and all incorrect
+ok 25 - all unattempted and all incorrect
+  ---
+  duration_ms: 0.134733
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 279.698682

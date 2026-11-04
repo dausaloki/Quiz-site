@@ -1,0 +1,17 @@
+
+> kalam-se-kranti@3.0.0-local-rc test:browser
+> node tests/browser.mjs
+
+PASS Chromium: catalog hierarchy, search, filters and deep links
+PASS Chromium: owner CRUD, full test builder and draft-only TXT import
+PASS Chromium: invalid TXT retained, corrected in preview, never auto-saved
+PASS Chromium: exam navigation, review, resume, server submit, solutions and PDF
+PASS Chromium: overall timer auto-submits without confirmation
+PASS Chromium: leaderboard and private history pages
+PASS Chromium: legacy October exam, 50 questions, result and PDF remain intact
+PASS Chromium: unauthorized owner account is blocked
+PASS Chromium: per-question deadline locks the palette and skips expired questions
+PASS Chromium/Android width: core pages fit a 360px viewport
+PASS WebKit/iPhone: homepage, admin, exam and legacy layouts have no horizontal overflow
+
+Browser checks: 11/11 passed
