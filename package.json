@@ -1,0 +1,28 @@
+{
+  "name": "kalam-se-kranti",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Bilingual Hindi/English examination portal with Supabase backend, owner admin, TXT import, PDF results, leaderboard and preserved legacy exams.",
+  "type": "module",
+  "scripts": {
+    "build:vendor": "node tools/vendor.mjs",
+    "build:schema": "node tools/build-schema.mjs",
+    "test": "node --test tests/parser.test.mjs tests/core.test.mjs tests/scoring.test.mjs tests/edge.test.mjs",
+    "test:db": "node --test tests/database.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:all": "node tools/test-all.mjs",
+    "serve": "python3 tools/serve.py 8080",
+    "verify:release": "node tools/verify-release.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "@supabase/supabase-js": "2.57.4",
+    "esbuild": "0.25.10",
+    "html2canvas": "1.4.1",
+    "jspdf": "2.5.1",
+    "playwright": "1.56.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

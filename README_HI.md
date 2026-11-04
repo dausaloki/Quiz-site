@@ -1,90 +1,170 @@
-# ✍️ कलम से क्रांति ✍️ — Multi-Subject Exam Portal
+# ✍️ कलम से क्रांति ✍️ — FULL PROJECT (Hindi/English)
 
-## इस वर्जन में क्या तैयार है
-- नया Subject → Topic → Part → Test वाला विद्यार्थी होमपेज।
-- Subject, Topic, Part और Test के लिए Cloud database संरचना।
-- Owner-only Admin Login (Supabase Auth + `portal_owners` allowlist)।
-- Owner Panel से Subject / Topic / Part जोड़ना और हटाना।
-- Test JSON के रूप में बनाना, publish/unpublish और delete करना।
-- अलग टेस्ट का अलग Test ID, समय, अंक, negative marking और प्रश्न।
-- विद्यार्थी टेस्ट दे सकते हैं; समय समाप्त होने पर auto-submit, Previous/Next, Question Palette, Review Star, result summary।
-- Cloud Results table में सबमिशन।
-- पुराना October Sujas Test 01 अलग `october-sujas-test-01.html` फाइल में सुरक्षित है; उसके पुराने exam features नहीं हटाए गए।
-- Telegram: `https://t.me/kalam_kranti`; Instagram: `@lokesh_dausa1`; Owner label: `@lokesh_dausa`.
+यह पैकेज **स्थानीय रूप से विकसित और सत्यापित** संस्करण है। इसमें मूल अक्टूबर सुजस टेस्ट और सभी अपलोड किए गए स्रोत बिना बदले सुरक्षित हैं, और नया Subject → Topic → Part → Test पोर्टल, Owner Admin Panel, Supabase schema/RLS, Edge Function, परीक्षा इंजन, PDF, leaderboard और history शामिल हैं।
 
-## जरूरी: वेबसाइट पर Cloud चालू करने के लिए एक बार सेटअप
-इस ZIP को GitHub पर डालने से पहले Supabase सेटअप पूरा करें। बिना config के नया cloud test catalog नहीं खुलेगा।
+> **महत्वपूर्ण:** इस पैकेज ने आपके GitHub या live Supabase project को **नहीं** छुआ है। `config.js` जानबूझकर खाली है। कोई service-role key, database password या निजी secret शामिल नहीं है। Live deployment से पहले staging project पर पूरा परीक्षण करें।
 
-### 1. Supabase प्रोजेक्ट
-1. https://supabase.com पर नया project बनाएं।
-2. Project → SQL Editor → New query खोलें।
-3. `supabase/schema.sql` की पूरी सामग्री paste करके Run करें।
-4. Project Settings → API से Project URL और anon/public key कॉपी करें। **service_role key कभी भी वेबसाइट में न डालें।**
+---
 
-### 2. Owner अकाउंट
-1. Supabase → Authentication → Users → Add user से अपना Owner email/password बनाएं।
-2. उस user की UUID कॉपी करें।
-3. SQL Editor में यह चलाएँ (UUID को अपने वास्तविक UUID से बदलें):
-   `insert into public.portal_owners(user_id) values ('YOUR-AUTH-USER-UUID');`
-4. Owner की अनुमति इसी allowlist से मिलती है। कोई दूसरा सामान्य user Admin Panel में login करके बदलाव नहीं कर सकेगा।
+## 1. तुरंत लोकल प्रीव्यू (बिना Supabase)
 
-### 3. config.js
-1. `config.example.js` को copy करके उसी folder में `config.js` नाम दें।
-2. इसमें अपना Supabase Project URL और anon/public key भरें।
-3. Telegram/Instagram links पहले से सेट हैं।
-4. `config.js` को GitHub में commit करें। इसमें केवल anon/public key रखें, service_role या password नहीं।
-
-### 4. GitHub Pages
-- Repository root में `index.html`, `admin.html`, `exam.html`, `config.js`, `october-sujas-test-01.html` और `supabase/` folder रहें।
-- Settings → Pages → Deploy from a branch → `main` → `/(root)` → Save।
-- Build होने के बाद `https://dausaloki.github.io/Quiz-site/` खोलें।
-
-## Owner Panel कैसे चलाएँ
-1. वेबसाइट पर Owner / Admin Login दबाएँ।
-2. Supabase Auth में बनाए गए Owner email/password से login करें।
-3. पहले Subject जोड़ें।
-4. फिर उस Subject का Topic जोड़ें।
-5. फिर Topic के अंदर Part जोड़ें।
-6. फिर Part चुनकर Test title, समय, marks और प्रश्न JSON डालें।
-7. Published चालू रखकर Test सेव करें। अब वह विद्यार्थी होमपेज पर दिखेगा।
-
-## Question JSON उदाहरण
-```json
-[
-  {
-    "question": "राजस्थान की राजधानी क्या है?",
-    "options": ["जयपुर", "जोधपुर", "उदयपुर", "कोटा"],
-    "correct_index": 0
-  }
-]
+```bash
+cd kalam-se-kranti
+python3 tools/serve.py 8080
+# browser: http://localhost:8080
 ```
-- `correct_index`: A=0, B=1, C=2, D=3.
-- हर प्रश्न में ठीक 4 विकल्प जरूरी हैं।
-- JSON में comma, quotes और brackets सही रखें।
 
-## सुरक्षा और सीमाएँ
-- Admin writes Supabase RLS + owner allowlist से सुरक्षित हैं।
-- यह शुरुआती multi-test release है। Student score फिलहाल browser-side calculate होता है; गंभीर/उच्च-दांव परीक्षा के लिए server-side grading, anti-cheat, rate limiting और answer-key protection जोड़ना जरूरी है।
-- Cloud database का public leaderboard सभी के लिए पढ़ने योग्य है; विद्यार्थियों को नाम दिखाने से पहले privacy/consent नियम तय करें।
-- पुराने अक्टूबर टेस्ट का मूल exam engine जस का तस अलग फाइल में रखा है। नए generic engine में अभी पुराने PDF solutions/report के सभी उन्नत फीचर नहीं हैं; पुराने टेस्ट को उसी पुराने engine से खोलें।
+- नया पोर्टल/Admin/Exam cloud सेटअप के बिना **setup notice** दिखाएगा; यह सही व्यवहार है।
+- **पुराना अक्टूबर टेस्ट** `october-sujas-test-01.html` बिना cloud के पूरा चलता है (50 प्रश्न, timer, palette, result, PDF)।
+- Node.js 20+ चाहिए यदि आप tests/build चलाते हैं। केवल static preview के लिए Python काफी है।
 
-## TXT से ऑटो टेस्ट बनाना
-Owner Panel → Test Management में TXT file चुनें → “TXT अपलोड करके प्रश्न तैयार करें” दबाएँ। Parser प्रश्न, A/B/C/D विकल्प और उत्तर को JSON में बदल देगा। Preview जाँचें, Part/टेस्ट समय चुनें और “टेस्ट सेव करें” दबाएँ।
+## 2. फ़ाइल मानचित्र
 
-समर्थित TXT उदाहरण:
-```text
-1. राजस्थान की राजधानी क्या है?
-A. जयपुर
-B. जोधपुर
-C. उदयपुर
-D. कोटा
-Answer: A
+| क्षेत्र | फ़ाइलें |
+|---|---|
+| Student portal | `index.html`, `assets/js/portal.js` |
+| Owner admin | `admin.html`, `assets/js/admin.js`, `admin-forms.js`, `admin-import.js` |
+| Exam | `exam.html`, `assets/js/exam.js`, `exam-core.js` |
+| Result/PDF | `result.html`, `assets/js/result.js`, `pdf.js` |
+| Leaderboard/History | `leaderboard.html/js`, `history.html/js` |
+| Shared/theme | `assets/js/shared.js`, `assets/css/portal.css` |
+| TXT/JSON importer | `assets/js/import-parser.js`, `examples/` |
+| Supabase | `supabase/migrations/0001…0006.sql`, `supabase/schema.sql`, `supabase/config.toml` |
+| Edge Function | `supabase/functions/exam/index.ts`, `_shared/handler.js`, `_shared/scoring.js` |
+| Vendor (offline) | `assets/vendor/supabase.js`, `jspdf.umd.min.js`, `html2canvas.min.js` + licenses |
+| संरक्षित मूल | `october-sujas-test-01.html`, `REFERENCE_ORIGINAL_UNCHANGED.html`, `REFERENCE_FEATURES.md`, `legacy/source-uploads/`, `legacy/SHA256SUMS.txt` |
+| Tests | `tests/*.test.mjs`, `tests/browser.mjs`, `tests/db-harness.mjs` |
+| Tools | `tools/serve.py`, `vendor.mjs`, `build-schema.mjs`, `test-all.mjs`, `verify-release.mjs` |
+| Docs | `README_HI.md`, `TEST_REPORT.md`, `docs/AUDIT_AND_MISSING_FEATURES.md` |
 
-2. राजस्थान दिवस कब मनाया जाता है?
-A. 26 जनवरी
-B. 30 मार्च
-C. 15 अगस्त
-D. 1 नवंबर
-उत्तर: B
+## 3. Supabase सेटअप (मैनुअल — live पर स्वतः नहीं चला)
+
+### 3.1 Schema
+
+1. Supabase में **नया/staging project** बनाएँ।
+2. SQL Editor में `supabase/schema.sql` चलाएँ। यह छह migrations का संयोजन है और **legacy tables को drop नहीं करता**।
+3. क्रमशः migrations भी चला सकते हैं: `0001_schema` → `0002_security` → `0003_exam_engine` → `0004_owner_tools` → `0005_storage_and_guards` → `0006_bulk_edit`।
+4. Storage buckets `portal-public` और `portal-private` migration से बनते हैं। Public bucket के thumbnails सार्वजनिक हैं; प्रश्न/व्याख्या images निजी bucket में signed URLs से खुलते हैं।
+
+### 3.2 Owner allowlist
+
+केवल Supabase Auth से login करना owner अधिकार **नहीं** देता। Owner UUID को allowlist में डालें:
+
+```sql
+-- Supabase Dashboard → Authentication → Users से owner का UUID लें
+insert into public.portal_owners (user_id) values ('OWNER-UUID-HERE');
 ```
-हर प्रश्न में चारों विकल्प और सही उत्तर का संकेत (A/B/C/D) होना जरूरी है। बिना उत्तर वाली या अलग layout वाली फाइलों को अपलोड करने पर प्रश्न auto-detect नहीं होंगे; ऐसे TXT format का sample देकर parser में support जोड़ा जा सकता है।
+
+- Public registration से कोई owner नहीं बन सकता।
+- Owner केवल content/settings/memberships/import logs लिख सकता है।
+- Attempts/answers/results/activity logs पर owner को भी केवल **SELECT** मिलता है; सभी writes SECURITY DEFINER functions से होते हैं।
+
+### 3.3 Public config
+
+`config.js` में केवल **public** मान भरें:
+
+```js
+window.PORTAL_CONFIG = {
+  supabaseUrl: 'https://YOUR-PROJECT.supabase.co',
+  supabaseAnonKey: 'YOUR-PUBLIC-ANON-KEY',
+  examFunctionName: 'exam',
+  premiumEnabled: false
+};
+```
+
+`config.example.js` नमूना है। **service_role key कभी browser में न डालें।**
+
+### 3.4 Edge Function
+
+```bash
+supabase functions deploy exam --no-verify-jwt
+supabase secrets set \
+  ALLOWED_ORIGINS="https://YOUR-USERNAME.github.io,http://localhost:8080" \
+  RATE_LIMIT_PEPPER="$(openssl rand -hex 32)" \
+  MOBILE_HASH_PEPPER="$(openssl rand -hex 32)"
+```
+
+- Function guest capability secret और mobile number को hash करके RPC को भेजता है।
+- Caller का JWT आगे भेजा जाता है; service key केवल server-side rate-limit/media signing के लिए है।
+- `ALLOWED_ORIGINS` में अपना static host जोड़ें। E2B/preview origin अलग हो तो उसे भी जोड़ें।
+- Body limit 64 KiB; rate limits: start 12/min, अन्य 240/min प्रति hashed IP।
+
+## 4. Owner Admin Panel उपयोग
+
+1. **Subjects → Topics → Parts** बनाएँ। प्रकाशित/अप्रकाशित नियंत्रित करें।
+2. **Tests** में नया test बनाएँ: अवधि, प्रति-प्रश्न सेकंड, अंक, negative ratio, max/passing marks, option count, schedule, visibility, practice/resume, solutions/explanations, PDF switches, leaderboard, premium flag।
+3. **Import TXT/JSON**:
+   - अलग-अलग layouts: `Q1.`, `1.`, `प्रश्न 1:`, options `(A)/A./1)`, answers `Answer:/Correct Answer:/उत्तर:`, explanations multiline।
+   - JSON legacy/bilingual और explicit field mapping भी समर्थित।
+   - Preview में हर प्रश्न, विकल्प, सही उत्तर, व्याख्या, reference, images, marks सुधारें।
+   - गलत प्रश्न चुपचाप नहीं छोड़े जाते; errors सुधारने तक save disabled।
+   - Import **हमेशा draft** में जाता है। Published test में import नहीं होगा।
+4. **Questions**: manual edit, reorder, bulk marks/tags/delete, duplicate test, JSON export।
+5. **Results/Analytics/Activity**: CSV export, question difficulty, audit log।
+6. **Backup/Restore**: JSON backup; restore के लिए `RESTORE` टाइप करना अनिवार्य। Restore questions load होने के बाद ही publication पुनः लागू करता है।
+7. **Settings**: announcement, registration, maintenance, premium enforcement (default OFF)।
+
+## 5. परीक्षा, परिणाम, PDF
+
+- Student नाम (वैकल्पिक mobile) से guest attempt शुरू कर सकता है; signed-in account history भी मिलती है।
+- Server deadlines authoritative हैं; overall timer समाप्त होने पर auto-submit।
+- प्रति-प्रश्न timer पहली बार खोलने पर शुरू होता है, revisit पर reset नहीं होता।
+- Palette: answered / visited / review / answered+review / locked / current।
+- Submit से पहले उत्तर बदल सकते हैं; server negative marking और idempotent submit लागू करता है।
+- Result में solutions/explanations owner switches के अनुसार; Hindi PDF canvas rendering से बनती है।
+- PDF controls: **डाउनलोड**, **Print/खोलें**, **Share** (Web Share API, fallback download)।
+- Leaderboard test-scoped है; बिना consent नाम `Student` रहता है; owner unpublish कर सकता है।
+- Guest result उसी browser की access secret से खुलता है; केवल Attempt ID जानने से कोई और result नहीं पढ़ सकता।
+
+## 6. Premium Membership architecture (default OFF)
+
+- `portal_memberships` table और `portal_tests.is_premium` flag मौजूद हैं।
+- Global `premium_enabled` setting default **false** है।
+- चालू करने पर premium test के लिए active membership आवश्यक होगी।
+- **Payment gateway/webhook इस release में शामिल नहीं है।** यह केवल entitlement architecture है।
+
+## 7. Tests और verification
+
+```bash
+npm install
+npm run build:vendor      # vendor bundles (पहले से included)
+npm run build:schema      # schema.sql regenerate
+npm test                  # parser/core/scoring/Edge unit tests
+npm run test:db           # PGlite में migrations + RLS + exam engine
+npm run test:browser      # Chromium + WebKit/iPhone + Android-width UI
+npm run test:all          # तीनों suites, logs test-results/ में
+npm run verify:release    # files, hashes, schema freshness, config safety
+```
+
+- Browser tests Supabase transport को **test-only mock** से बदलते हैं; live project से संपर्क नहीं होता।
+- PGlite harness auth/storage stubs उपयोग करता है; यह वास्तविक Supabase Auth का पूर्ण विकल्प नहीं है।
+- `TEST_REPORT.md` में नवीनतम परिणाम और सीमाएँ देखें।
+- `legacy/SHA256SUMS.txt` मूल अपलोड्स की byte-level पहचान रखता है।
+
+## 8. सुरक्षा मॉडल (संक्षेप)
+
+- RLS: anonymous केवल published catalog; प्रश्न/उत्तर सीधे tables से नहीं, केवल RPC से।
+- Active attempt payload में correct_index/explanation नहीं होते (practice mode अपवाद)।
+- Capability secret SHA-256 hashed; mobile peppered hash।
+- Owner allowlist + SECURITY DEFINER owner checks; audit logs केवल functions लिखते हैं।
+- Private media signed URLs (1 घंटा); public thumbnails अलग bucket।
+- CORS allowlist, body size limit, distributed rate limit।
+- कोई hardcoded production subject/test नहीं; examples केवल `examples/` में।
+
+## 9. ज्ञात सीमाएँ / ईमानदार स्थिति
+
+- **Live Supabase/Auth/Edge deployment सत्यापित नहीं** है क्योंकि credentials/approval नहीं दिए गए।
+- प्रति-प्रश्न timer strict anti-cheat नहीं है: sanitized payload में सभी प्रश्न होते हैं; server केवल answer lock/deadline enforce करता है।
+- Guest access secret localStorage में है; browser data साफ़ होने पर guest result नहीं खुलेगा। Signed-in history अनुशंसित।
+- PDF बड़े images/लंबी explanations पर device पर समय ले सकती है; popup blocked होने पर download fallback है।
+- वास्तविक भुगतान, ईमेल templates, और प्रोडक्शन निगरानी इस पैकेज का हिस्सा नहीं हैं।
+
+## 10. मूल_feature संरक्षण
+
+- `REFERENCE_ORIGINAL_UNCHANGED.html` और `october-sujas-test-01.html` के SHA-256 `legacy/SHA256SUMS.txt` से मिलाए जा सकते हैं।
+- सभी 10 स्रोत अपलोड `legacy/source-uploads/` में byte-for-byte सुरक्षित हैं।
+- पुराना अक्टूबर टेस्ट नए पोर्टल से अलग चलता रहता है; नया portal बिना config के कोई नकली test नहीं दिखाता।
+
+---
+
+Owner: @lokesh_dausa · Telegram: @kalam_kranti · Instagram: @lokesh_dausa1

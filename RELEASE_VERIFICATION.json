@@ -1,0 +1,592 @@
+{
+  "date": "2026-11-04T02:20:34.686Z",
+  "checks": [
+    {
+      "name": "file:index.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:admin.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:exam.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:result.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:leaderboard.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:history.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:october-sujas-test-01.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:REFERENCE_ORIGINAL_UNCHANGED.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:REFERENCE_FEATURES.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:config.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:config.example.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:package.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:package-lock.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:README_HI.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:TEST_REPORT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/css/portal.css",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/shared.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/portal.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/admin.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/admin-forms.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/admin-import.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/exam.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/exam-core.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/result.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/pdf.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/leaderboard.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/history.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/js/import-parser.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/vendor/supabase.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/vendor/jspdf.umd.min.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/vendor/html2canvas.min.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/vendor/LICENSE-supabase-js.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/vendor/LICENSE-jspdf.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:assets/vendor/LICENSE-html2canvas.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/schema.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/config.toml",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/functions/exam/index.ts",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/functions/_shared/handler.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/functions/_shared/scoring.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/migrations/0001_schema.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/migrations/0002_security.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/migrations/0003_exam_engine.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/migrations/0004_owner_tools.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/migrations/0005_storage_and_guards.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:supabase/migrations/0006_bulk_edit.sql",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:examples/mixed-format.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:examples/needs-correction.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:examples/questions.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/parser.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/core.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/scoring.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/edge.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/database.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/db-harness.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/browser.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tests/browser-mock.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tools/vendor.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tools/build-schema.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tools/serve.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tools/test-all.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:tools/verify-release.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:docs/AUDIT_AND_MISSING_FEATURES.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "file:legacy/SHA256SUMS.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:README_HI-2.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:README_HI.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:REFERENCE_FEATURES.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:REFERENCE_ORIGINAL_UNCHANGED.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:admin-2.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:admin.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:exam.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:index-2.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:index.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "legacy upload:october-sujas-test-01.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "hash:legacy/source-uploads/README_HI-2.md",
+      "status": "PASS",
+      "detail": "34fa955aded15e81c041d405e2d3844a9b43efd2a304d42f91b6d95e05c20249"
+    },
+    {
+      "name": "hash:legacy/source-uploads/README_HI.md",
+      "status": "PASS",
+      "detail": "d354491683baa5356f20dd11bec36b9ce9d21268075dd2a7d44d7abf27cc7d07"
+    },
+    {
+      "name": "hash:legacy/source-uploads/REFERENCE_FEATURES.md",
+      "status": "PASS",
+      "detail": "00bd50307dac63e86896241023a0de4cf54dc31e6a6cbb87c89da122be5a77ff"
+    },
+    {
+      "name": "hash:legacy/source-uploads/REFERENCE_ORIGINAL_UNCHANGED.html",
+      "status": "PASS",
+      "detail": "67f35fffc27c3739b6407a4e8cffc5e5e7830e9d1962a5f53e280de099546701"
+    },
+    {
+      "name": "hash:legacy/source-uploads/admin-2.html",
+      "status": "PASS",
+      "detail": "3c8513beb443d6ab919b8a7c4255b10fa5830c2d16538cb72f64c47b17852955"
+    },
+    {
+      "name": "hash:legacy/source-uploads/admin.html",
+      "status": "PASS",
+      "detail": "e567a2ec6215991e6abf369ece82290b2b71f2f22240d489affd74d8a12c1d3b"
+    },
+    {
+      "name": "hash:legacy/source-uploads/exam.html",
+      "status": "PASS",
+      "detail": "e4ac860d6d41373b6d9574d40f39b3125c32889fb3e2c8755c77e0225ff30d89"
+    },
+    {
+      "name": "hash:legacy/source-uploads/index-2.html",
+      "status": "PASS",
+      "detail": "a711fb5ca9639e40d0b7e661091d886b293a972b1aa4e61252c8e398740558b7"
+    },
+    {
+      "name": "hash:legacy/source-uploads/index.html",
+      "status": "PASS",
+      "detail": "0ed841afbd872f342de3e46294436fa8fd05897de851682d8942d4e5cbf0fb0a"
+    },
+    {
+      "name": "hash:legacy/source-uploads/october-sujas-test-01.html",
+      "status": "PASS",
+      "detail": "0ed841afbd872f342de3e46294436fa8fd05897de851682d8942d4e5cbf0fb0a"
+    },
+    {
+      "name": "hash:october-sujas-test-01.html",
+      "status": "PASS",
+      "detail": "0ed841afbd872f342de3e46294436fa8fd05897de851682d8942d4e5cbf0fb0a"
+    },
+    {
+      "name": "hash:REFERENCE_ORIGINAL_UNCHANGED.html",
+      "status": "PASS",
+      "detail": "67f35fffc27c3739b6407a4e8cffc5e5e7830e9d1962a5f53e280de099546701"
+    },
+    {
+      "name": "hash:REFERENCE_FEATURES.md",
+      "status": "PASS",
+      "detail": "00bd50307dac63e86896241023a0de4cf54dc31e6a6cbb87c89da122be5a77ff"
+    },
+    {
+      "name": "schema.sql matches migrations",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "config has no live credentials",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "premium disabled by default in config",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "premium disabled by default in SQL",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/admin-forms.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/admin-import.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/admin.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/exam-core.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/exam.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/history.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/import-parser.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/leaderboard.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/pdf.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/portal.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/result.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:assets/js/shared.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tools/build-schema.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tools/test-all.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tools/vendor.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tools/verify-release.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/browser-mock.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/browser.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/core.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/database.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/db-harness.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/edge.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/parser.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:tests/scoring.test.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:supabase/functions/_shared/handler.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "syntax:supabase/functions/_shared/scoring.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no .env or secret files packaged",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "pass": 117,
+  "fail": 0
+}
